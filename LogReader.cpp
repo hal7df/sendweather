@@ -1,8 +1,3 @@
-LogReader::LogReader()
-{
-    
-}
-
 struct tm LogReader::getLastWuUpdate (string fname)
 {
     string raw;
@@ -132,7 +127,7 @@ struct tm LogReader::getLogTime (string line)
 
 vector<string> LogReader::splitLogLine (string line)
 {
-    stringstream ss (stringstream::in | stringstream::out);
+    stringstream ss;
     vector<string> split;
     string buf;
     

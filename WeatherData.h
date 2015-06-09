@@ -1,10 +1,3 @@
-#ifndef WEATHERDATA_H
-#define WEATHERDATA_H
-
-#include <string>
-#include <ctime>
-using namespace std;
-
 struct weatherData {
     struct tm dataTime;
     double temp;
@@ -18,5 +11,3 @@ struct weatherData {
     double rain;
     double relPressure;
 };
-
-#endif //WEATHERDATA_H

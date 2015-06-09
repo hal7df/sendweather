@@ -8,8 +8,6 @@ WeatherUpdater::WeatherUpdater (string fname, string userID, string passwd)
     m_passwd = passwd;
     
     m_logreader = new LogReader;
-    
-    curl_global_init(CURL_GLOBAL_ALL);
 }
 
 /** DESTRUCTOR **/
@@ -112,7 +110,7 @@ bool WeatherUpdater::downloadHistoryFile()
     FILE* dl;
     string dl_url;
     
-    stringstream ss (stringstream::in | stringstream::out);
+    stringstream ss;
     time_t* rawtime;
     struct tm* tm_info;
     
@@ -223,7 +221,7 @@ void WeatherUpdater::readUnattendedData ()
 
 string WeatherUpdater::getWuPostString (weatherData point)
 {
-    stringstream ss (stringstream::in | stringstream::out);
+    stringstream ss;
     
     // Station ID and password
     ss << "ID=" << m_userID << "&PASSWORD=" << m_passwd;
@@ -267,7 +265,7 @@ string WeatherUpdater::getWuPostString (weatherData point)
 
 string WeatherUpdater::formatWuTime (struct tm ptTm)
 {
-    stringstream ss (stringstream::in | stringstream::out);
+    stringstream ss;
     time_t pointTime;
     
     pointTime = mktime(&ptTm);

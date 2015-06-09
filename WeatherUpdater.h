@@ -13,8 +13,7 @@
 #include <curl/curl.h>
 
 #include "LogReader.h"
-
-#define WU_UPLOAD_URL "http://weatherstation.wunderground.com/weatherstation/updateweatherstation.php"
+#include "WuUpload.h"
 
 using namespace std;
 

@@ -14,16 +14,19 @@ using namespace std;
 class LogReader 
 {
 public:
-    LogReader();
+    LogReader() {}
+    virtual ~LogReader {}
 
     struct tm getLastWuUpdate(string fname);
+    struct tm getLogTime(string line);
+    
     weatherData parseLogLine(string line); // log produced by run2300d
     weatherData parseHistlogLine(string line); // log produced by histlog2300
-    struct tm getLogTime(string line);
+    
+    string readLastLine (string fname);
     
 private:
     vector<string> splitLogLine (string line);
-    string readLastLine (string fname);
 };
 
 #endif //LOGREADER_H
